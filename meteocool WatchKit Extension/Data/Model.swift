@@ -20,6 +20,7 @@ struct DecodedArray: Decodable {
         init?(intValue: Int) {
             return nil
         }
+
     }
     
     init(from decoder: Decoder) throws {
@@ -43,7 +44,7 @@ struct Frame: Codable, Identifiable {
     let id = UUID()
     let source: String
     let dbz: CGFloat
-    let timestamp: Int
+    let timestamp: Double
     
     enum CodingKeys: CodingKey {
         case source
@@ -56,6 +57,6 @@ struct Frame: Codable, Identifiable {
         
         source = try container.decode(String.self, forKey: CodingKeys.source)
         dbz = try container.decode(CGFloat.self, forKey: CodingKeys.dbz)
-        timestamp = Int(container.codingPath[1].stringValue)!
+        timestamp = Double(container.codingPath[1].stringValue)!
     }
 }
