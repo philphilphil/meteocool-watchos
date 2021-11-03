@@ -1,0 +1,107 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BarChartKit
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+public struct BarChart : SwiftUI.View {
+  public struct DataSet {
+    public struct DataElement {
+      public struct Bar {
+        public let value: Swift.Double
+        public let color: SwiftUI.Color
+        public init(value: Swift.Double, color: SwiftUI.Color)
+      }
+      public let date: Foundation.Date?
+      public let xLabel: Swift.String
+      public let bars: [BarChartKit.BarChart.DataSet.DataElement.Bar]
+      public init(date: Foundation.Date?, xLabel: Swift.String, bars: [BarChartKit.BarChart.DataSet.DataElement.Bar])
+    }
+    public let elements: [BarChartKit.BarChart.DataSet.DataElement]
+    public let selectionColor: SwiftUI.Color?
+    public init(elements: [BarChartKit.BarChart.DataSet.DataElement], selectionColor: SwiftUI.Color?)
+  }
+  public let dataSet: BarChartKit.BarChart.DataSet
+  @SwiftUI.Binding @_projectedValueProperty($selectedElement) public var selectedElement: BarChartKit.BarChart.DataSet.DataElement? {
+    get
+    nonmutating set
+    nonmutating _modify
+  }
+  public var $selectedElement: SwiftUI.Binding<BarChartKit.BarChart.DataSet.DataElement?> {
+    get
+  }
+  public let barWidth: CoreGraphics.CGFloat
+  public var body: some SwiftUI.View {
+    get
+  }
+  public init(dataSet: BarChartKit.BarChart.DataSet, selectedElement: SwiftUI.Binding<BarChartKit.BarChart.DataSet.DataElement?>, barWidth: CoreGraphics.CGFloat = 6)
+  public typealias Body = @_opaqueReturnTypeOf("$s11BarChartKit0aB0V4bodyQrvp", 0) 🦸
+}
+extension BarChart.DataSet.DataElement : Swift.Identifiable {
+  public var id: Swift.String {
+    get
+  }
+  public typealias ID = Swift.String
+}
+extension BarChart.DataSet.DataElement : Swift.Equatable {
+  public static func == (lhs: BarChartKit.BarChart.DataSet.DataElement, rhs: BarChartKit.BarChart.DataSet.DataElement) -> Swift.Bool
+}
+extension BarChart.DataSet.DataElement.Bar : Swift.Identifiable {
+  public var id: Swift.String {
+    get
+  }
+  public typealias ID = Swift.String
+}
+extension BarChart.DataSet.DataElement.Bar : Swift.Equatable {
+  public static func == (lhs: BarChartKit.BarChart.DataSet.DataElement.Bar, rhs: BarChartKit.BarChart.DataSet.DataElement.Bar) -> Swift.Bool
+}
+public protocol BarChartViewDelegate : AnyObject {
+  func didSelect(dataElement: BarChartKit.BarChartView.DataSet.DataElement, dataSet: BarChartKit.BarChartView.DataSet)
+}
+@objc @_inheritsConvenienceInitializers final public class BarChartView : UIKit.UIView {
+  public struct DataSet : Swift.Equatable {
+    public struct DataElement : Swift.Equatable {
+      public struct Bar : Swift.Equatable {
+        public let value: Swift.Double
+        public let color: UIKit.UIColor
+        public init(value: Swift.Double, color: UIKit.UIColor)
+        public static func == (a: BarChartKit.BarChartView.DataSet.DataElement.Bar, b: BarChartKit.BarChartView.DataSet.DataElement.Bar) -> Swift.Bool
+      }
+      public static func == (lhs: BarChartKit.BarChartView.DataSet.DataElement, rhs: BarChartKit.BarChartView.DataSet.DataElement) -> Swift.Bool
+      public let date: Foundation.Date?
+      public let xLabel: Swift.String
+      public let bars: [BarChartKit.BarChartView.DataSet.DataElement.Bar]
+      public init(date: Foundation.Date?, xLabel: Swift.String, bars: [BarChartKit.BarChartView.DataSet.DataElement.Bar])
+    }
+    public struct Limit : Swift.Equatable {
+      public let color: UIKit.UIColor
+      public let label: Swift.String?
+      public let value: Swift.Double
+      public init(color: UIKit.UIColor, label: Swift.String?, value: Swift.Double)
+      public static func == (a: BarChartKit.BarChartView.DataSet.Limit, b: BarChartKit.BarChartView.DataSet.Limit) -> Swift.Bool
+    }
+    public let elements: [BarChartKit.BarChartView.DataSet.DataElement]
+    public let limit: BarChartKit.BarChartView.DataSet.Limit?
+    public let selectionColor: UIKit.UIColor?
+    public init(elements: [BarChartKit.BarChartView.DataSet.DataElement], limit: BarChartKit.BarChartView.DataSet.Limit? = nil, selectionColor: UIKit.UIColor?)
+    public static func == (a: BarChartKit.BarChartView.DataSet, b: BarChartKit.BarChartView.DataSet) -> Swift.Bool
+  }
+  final public var dataSet: BarChartKit.BarChartView.DataSet? {
+    get
+    set
+  }
+  final public var barWidth: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  weak final public var delegate: BarChartKit.BarChartViewDelegate?
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc override final public func awakeFromNib()
+  @objc override final public func layoutSubviews()
+  final public func select(element: BarChartKit.BarChartView.DataSet.DataElement)
+  final public func select(index: Swift.Int)
+  final public func deselectAll()
+  @objc deinit
+}
