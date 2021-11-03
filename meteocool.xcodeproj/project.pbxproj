@@ -22,8 +22,7 @@
 		4A1244F1272C9C1400CE9CAA /* meteocoolUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1244F0272C9C1400CE9CAA /* meteocoolUITestsLaunchTests.swift */; };
 		4A864AAC272F178400EA2DD0 /* ColorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A864AAB272F178400EA2DD0 /* ColorMap.swift */; };
 		4A864AB1272F33E200EA2DD0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A864AB0272F33E200EA2DD0 /* Model.swift */; };
-		4A864AB6272F48F600EA2DD0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4A864AB5272F48F600EA2DD0 /* Alamofire */; };
-		4AA31EA927305A330004EE94 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA31EA827305A330004EE94 /* ModelData.swift */; };
+		4AA31EA927305A330004EE94 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA31EA827305A330004EE94 /* Api.swift */; };
 		4AE476EF272EE42400A063B7 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE476EE272EE42400A063B7 /* Bar.swift */; };
 		4AE476F1272EEA6C00A063B7 /* RainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE476F0272EEA6C00A063B7 /* RainView.swift */; };
 /* End PBXBuildFile section */
@@ -105,7 +104,7 @@
 		4A1244F0272C9C1400CE9CAA /* meteocoolUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meteocoolUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4A864AAB272F178400EA2DD0 /* ColorMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMap.swift; sourceTree = "<group>"; };
 		4A864AB0272F33E200EA2DD0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		4AA31EA827305A330004EE94 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		4AA31EA827305A330004EE94 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		4AE476EE272EE42400A063B7 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		4AE476F0272EEA6C00A063B7 /* RainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +114,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A864AB6272F48F600EA2DD0 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +168,7 @@
 		4A1244CA272C9C1400CE9CAA /* meteocool WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4A22F84B27331D5700BE543C /* RainView */,
 				4A864AAD272F2E2000EA2DD0 /* Data */,
 				4AE476EB272EE40000A063B7 /* Bar */,
 				4A1244CB272C9C1400CE9CAA /* meteocoolApp.swift */,
@@ -210,11 +209,19 @@
 			path = meteocoolUITests;
 			sourceTree = "<group>";
 		};
+		4A22F84B27331D5700BE543C /* RainView */ = {
+			isa = PBXGroup;
+			children = (
+				4AE476F0272EEA6C00A063B7 /* RainView.swift */,
+			);
+			path = RainView;
+			sourceTree = "<group>";
+		};
 		4A864AAD272F2E2000EA2DD0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				4A864AB0272F33E200EA2DD0 /* Model.swift */,
-				4AA31EA827305A330004EE94 /* ModelData.swift */,
+				4AA31EA827305A330004EE94 /* Api.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -223,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				4AE476EE272EE42400A063B7 /* Bar.swift */,
-				4AE476F0272EEA6C00A063B7 /* RainView.swift */,
 				4A864AAB272F178400EA2DD0 /* ColorMap.swift */,
 			);
 			path = Bar;
@@ -282,7 +288,6 @@
 			);
 			name = "meteocool WatchKit Extension";
 			packageProductDependencies = (
-				4A864AB5272F48F600EA2DD0 /* Alamofire */,
 			);
 			productName = "meteocool WatchKit Extension";
 			productReference = 4A1244C6272C9C1400CE9CAA /* meteocool WatchKit Extension.appex */;
@@ -365,7 +370,6 @@
 			);
 			mainGroup = 4A1244B0272C9C1300CE9CAA;
 			packageReferences = (
-				4A864AB4272F48F600EA2DD0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 4A1244B8272C9C1300CE9CAA /* Products */;
 			projectDirPath = "";
@@ -433,7 +437,7 @@
 				4A1244D4272C9C1400CE9CAA /* ComplicationController.swift in Sources */,
 				4A1244CC272C9C1400CE9CAA /* meteocoolApp.swift in Sources */,
 				4A1244D2272C9C1400CE9CAA /* NotificationView.swift in Sources */,
-				4AA31EA927305A330004EE94 /* ModelData.swift in Sources */,
+				4AA31EA927305A330004EE94 /* Api.swift in Sources */,
 				4A864AAC272F178400EA2DD0 /* ColorMap.swift in Sources */,
 				4AE476F1272EEA6C00A063B7 /* RainView.swift in Sources */,
 			);
@@ -910,25 +914,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4A864AB4272F48F600EA2DD0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4A864AB5272F48F600EA2DD0 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4A864AB4272F48F600EA2DD0 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4A1244B1272C9C1300CE9CAA /* Project object */;
 }

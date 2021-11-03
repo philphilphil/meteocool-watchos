@@ -31,7 +31,7 @@ struct DecodedArray: Decodable {
             let decodedObject = try container.decode(Frame.self, forKey: DynamicCodingKeys(stringValue: key.stringValue)!)
             tempArray.append(decodedObject)
         }
-
+        
         array = tempArray
     }
 }
@@ -59,4 +59,3 @@ struct Frame: Codable, Identifiable {
         timestamp = Int(container.codingPath[1].stringValue)!
     }
 }
-

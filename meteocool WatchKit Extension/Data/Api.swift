@@ -24,6 +24,7 @@ class Api {
             DispatchQueue.main.async {
                 completion(weather)
             }
+            
         }
         .resume()
     }

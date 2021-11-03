@@ -19,27 +19,24 @@ struct RainView: View {
         VStack {
             HStack {
                 Text("Fellbach").font(.body)
-                //                    .onTapGesture {
-                //                        test()
-                //                    }
                 Text("16:45").font(.footnote)
             }
             GeometryReader { geometry in
                 HStack(alignment: .bottom, spacing: 1) {
                     
                     let barWidth = geometry.size.width / 12 - 2
+                    let highestPossibleRainAmount = 95 + 32.5 // adjusted
                     
                     ForEach(rainForecastData) { forecastData in
                         
-                        let highestPossibleRainAmount = 95 + 32.5 //added 32.5 to composate for value starting at -32,5
-                        let adjustedRainAmount = CGFloat(forecastData.dbz) + 32.5
-                        let rainAmount = CGFloat(forecastData.dbz) > 95 ? 95 : CGFloat(forecastData.dbz)
+                        // cap rain amount at 95 and compensate for the negative value (-32,5) it starts with
+                        let rainAmount = CGFloat.minimum(95, forecastData.dbz) + 32.5;
                         
+                        // calc high of bar relative to size of bar container
                         let barHeightRatio = geometry.size.height / highestPossibleRainAmount
+                        let barHeight = rainAmount * barHeightRatio
                         
-                        let barHeight = (adjustedRainAmount > highestPossibleRainAmount ? highestPossibleRainAmount : adjustedRainAmount) * barHeightRatio
-                        
-                        Bar(barHeight: barHeight, barWidth: barWidth, rainAmountDBZ: rainAmount)
+                        Bar(barHeight: barHeight, barWidth: barWidth, rainAmountDBZ: forecastData.dbz)
                         
                     }
                 }
@@ -56,7 +53,7 @@ struct RainView: View {
         .onAppear {
             Api().loadRainForecast { (result) in
                 self.rainForecastData = result.frames.array.filter { $0.source == "nowcast_phys" }.sorted { $0.timestamp < $1.timestamp }
-                dump(self.rainForecastData)
+                //dump(self.rainForecastData)
             }
         }
     }
