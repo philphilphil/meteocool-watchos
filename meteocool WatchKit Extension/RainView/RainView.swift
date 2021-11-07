@@ -18,14 +18,14 @@ struct RainView: View {
     
     var body: some View {
         VStack {
-   
+            
             
             GeometryReader { geometry in
                 ScrollViewReader { proxy in
                     HStack {
                         Button("Now") {
                             withAnimation {
-                                proxy.scrollTo(rainForecastData[23].id)
+                                proxy.scrollTo(rainForecastData[33].id)
                             }
                         }
                         Button("Refresh") {
@@ -51,16 +51,16 @@ struct RainView: View {
                                 // calc high of bar relative to size of bar container
                                 let barHeightRatio = geometry.size.width / highestPossibleRainAmount
                                 let barHeight = rainAmount * barHeightRatio
-                                let indicatorActive = forecastData.id == rainForecastData[23].id ? true : false
+                                let indicatorActive = forecastData.id == rainForecastData[33].id ? true : false
                                 
                                 Bar(barHeight: barHeight, barWidth: barWidth, rainAmountDBZ: forecastData.dbz, indicatorActive: indicatorActive)
                                     .id(forecastData.id)
                             }
                         }
-//                        .digitalCrownRotation($scroll, from: 0, through: 20.0, by: 1, sensitivity: .low, isContinuous: false, isHapticFeedbackEnabled: true)
-//                        .onChange(of: scroll) { value in
-//                            print("crown")
-//                        }
+                        .digitalCrownRotation($scroll, from: 0, through: 20.0, by: 1, sensitivity: .low, isContinuous: false, isHapticFeedbackEnabled: true)
+                        .onChange(of: scroll) { value in
+                            print("crown")
+                        }
                         .frame(
                             minWidth: 0,
                             maxWidth: .infinity,
@@ -89,7 +89,7 @@ struct RainView: View {
                 }
             }
         }
-
+        
     }
 }
 
