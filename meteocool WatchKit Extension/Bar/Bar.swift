@@ -15,19 +15,27 @@ struct Bar: View {
     var barHeight: CGFloat
     var barWidth: CGFloat
     var rainAmountDBZ: CGFloat
+    var indicatorActive: Bool = false
+    @State var indicatorColor: Color = .white
     
     var body: some View {
         VStack {
-            HStack {
-                Rectangle()
-                    .frame(width: 5, height: barHeight, alignment: .bottom)
-                    .foregroundColor(.white)
-                    .zIndex(10)
+            VStack {
                 Rectangle()
                     .frame(width: barWidth, height: barHeight, alignment: .bottom)
                     .foregroundColor(CMAP_NWS[dbz2index(dbz: rainAmountDBZ)])
                     .cornerRadius(2)
-                    .offset(x: -6, y: 0)
+                    .offset(x: 0, y: 6)
+                Rectangle()
+                    .frame(width: barWidth, height: 5, alignment: .bottom)
+                    .foregroundColor(indicatorColor)
+                    .zIndex(10)
+                    .shadow(radius: 2)
+                    .onAppear {
+                        if indicatorActive {
+                            self.indicatorColor = .red
+                        }
+                    }
             }
         }
     }

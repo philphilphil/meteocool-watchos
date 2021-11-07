@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import Alamofire
 
 class Api {
     
     func loadRainForecast(completion:@escaping (RainForecast) -> Void) {
         
-        let apiUrl = "https://api.meteocool.com/v2/radar/?lat=51.777790&lon=10.143653956173708"
+        let apiUrl = "https://api.meteocool.com/v2/radar/?lat=53.999044&lon=7.2652520052"
         
         guard let url = URL(string: apiUrl) else { return }
         
