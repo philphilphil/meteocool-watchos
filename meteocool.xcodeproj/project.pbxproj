@@ -22,6 +22,7 @@
 		4A1244F1272C9C1400CE9CAA /* meteocoolUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1244F0272C9C1400CE9CAA /* meteocoolUITestsLaunchTests.swift */; };
 		4A864AAC272F178400EA2DD0 /* ColorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A864AAB272F178400EA2DD0 /* ColorMap.swift */; };
 		4A864AB1272F33E200EA2DD0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A864AB0272F33E200EA2DD0 /* Model.swift */; };
+		4A9DE94E2739CF9900C54BC2 /* api.meteocool.com.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A9DE94D2739CF9900C54BC2 /* api.meteocool.com.json */; };
 		4AA31EA927305A330004EE94 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA31EA827305A330004EE94 /* Api.swift */; };
 		4AE476EF272EE42400A063B7 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE476EE272EE42400A063B7 /* Bar.swift */; };
 		4AE476F1272EEA6C00A063B7 /* RainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE476F0272EEA6C00A063B7 /* RainView.swift */; };
@@ -104,6 +105,7 @@
 		4A1244F0272C9C1400CE9CAA /* meteocoolUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meteocoolUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4A864AAB272F178400EA2DD0 /* ColorMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMap.swift; sourceTree = "<group>"; };
 		4A864AB0272F33E200EA2DD0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		4A9DE94D2739CF9900C54BC2 /* api.meteocool.com.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = api.meteocool.com.json; sourceTree = "<group>"; };
 		4AA31EA827305A330004EE94 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		4AE476EE272EE42400A063B7 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		4AE476F0272EEA6C00A063B7 /* RainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainView.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		4A864AAD272F2E2000EA2DD0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				4A9DE94D2739CF9900C54BC2 /* api.meteocool.com.json */,
 				4A864AB0272F33E200EA2DD0 /* Model.swift */,
 				4AA31EA827305A330004EE94 /* Api.swift */,
 			);
@@ -406,6 +409,7 @@
 			files = (
 				4A1244D9272C9C1400CE9CAA /* Preview Assets.xcassets in Resources */,
 				4A1244D6272C9C1400CE9CAA /* Assets.xcassets in Resources */,
+				4A9DE94E2739CF9900C54BC2 /* api.meteocool.com.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

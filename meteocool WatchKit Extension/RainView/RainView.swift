@@ -12,31 +12,46 @@ struct RainView: View {
     @State var rainForecastData: [Frame] = []
     @State var selectedTime: String = ""
     @State var selectedBar: UUID = UUID()
-    @State private var scrollAmount = 1.0
-    @State var scroll: Double = 0.0
-    @State var scrolling: Bool = false
+    @State private var crownValue = 0.0
+    @State private var minValue = 1.0
+    @State private var maxValue = 47.0
+    @State private var stepAmount = 1.0
     
     var body: some View {
         VStack {
-            
-            
-            GeometryReader { geometry in
-                ScrollViewReader { proxy in
-                    HStack {
-                        Button("Now") {
-                            withAnimation {
-                                proxy.scrollTo(rainForecastData[33].id)
-                            }
-                        }
-                        Button("Refresh") {
-                            print("asd")
+            ScrollViewReader { proxy in
+                HStack {
+                    Button("Now") {
+                        withAnimation {
+                            proxy.scrollTo(rainForecastData[33].id)
                         }
                     }
-                    
-                    HStack {
-                        Text("Fellbach").font(.body)
-                        Text(self.selectedTime).font(.footnote)
+                    .focusable()
+                    .digitalCrownRotation($crownValue, from: minValue, through: maxValue, by: stepAmount, sensitivity: .low, isContinuous: false)
+                    .onChange(of: self.crownValue) { newValue in
+                        //  if self.crownValue.truncatingRemainder(dividingBy: 1) == 0 {
+                        let selected = Int(self.crownValue)
+                        print("scroll to \(selected)!")
+                        proxy.scrollTo(rainForecastData[selected].id)
+                        // }
+                        //
+                        //                        if self.crownValue.truncatingRemainder(dividingBy: 1) == 0 {
+                        //
+                        //                            if self.crownValue == 47.0 {
+                        //                                self.crownValue = 34.0
+                        //                            }
+                        //                        }
                     }
+                    Button("Refresh") {
+                        //todo
+                    }
+                }
+                
+                HStack {
+                    Text("Fellbach").font(.body)
+                    Text(self.selectedTime).font(.footnote)
+                }
+                GeometryReader { geometry in
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(alignment: .bottom, spacing: 1) {
@@ -52,14 +67,13 @@ struct RainView: View {
                                 let barHeightRatio = geometry.size.width / highestPossibleRainAmount
                                 let barHeight = rainAmount * barHeightRatio
                                 let indicatorActive = forecastData.id == rainForecastData[33].id ? true : false
-                                
-                                Bar(barHeight: barHeight, barWidth: barWidth, rainAmountDBZ: forecastData.dbz, indicatorActive: indicatorActive)
-                                    .id(forecastData.id)
+                                VStack {
+                                    Bar(barHeight: barHeight, barWidth: barWidth, rainAmountDBZ: forecastData.dbz, indicatorActive: indicatorActive)
+                                        .id(forecastData.id)
+                                    Text("a")
+                                }
+                        
                             }
-                        }
-                        .digitalCrownRotation($scroll, from: 0, through: 20.0, by: 1, sensitivity: .low, isContinuous: false, isHapticFeedbackEnabled: true)
-                        .onChange(of: scroll) { value in
-                            print("crown")
                         }
                         .frame(
                             minWidth: 0,

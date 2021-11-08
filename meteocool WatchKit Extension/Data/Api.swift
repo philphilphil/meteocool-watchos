@@ -11,7 +11,7 @@ class Api {
     
     func loadRainForecast(completion:@escaping (RainForecast) -> Void) {
         
-        let apiUrl = "https://api.meteocool.com/v2/radar/?lat=53.999044&lon=7.2652520052"
+        let apiUrl = "https://api.meteocool.com/v2/radar/?lat=50.78221461334852&lon=14.302757773785745"
         
         guard let url = URL(string: apiUrl) else { return }
         
